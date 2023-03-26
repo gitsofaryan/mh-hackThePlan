@@ -13,12 +13,12 @@ function App() {
 
   return (
     <div>
-        <Routes>
-          <Route exact path='/' element={<Homepage />} />
-          <Route exact path='/event/new' element={<CreateEvent />} />
-          <Route exact path='/event/:id' element={<Event />} />
-          <Route exact path='/events' element={<MyEvents />} />
-        </Routes>
+      <Routes>
+        <Route exact path='/' element={<Homepage />} />
+        <Route exact path='/event/new' element={<CreateEvent />} />
+        <Route exact path='/event/:id' element={<Event />} />
+        <Route exact path='/events' element={<MyEvents />} />
+      </Routes>
     </div>
   )
 }
