@@ -2,10 +2,10 @@ import { Router } from "express";
 import Event from "../model/Event";
 const router = Router();
 
-router.get('/user/:id/events', async (req, res) => {
+router.get('/:user_id/events', async (req, res) => {
     try {
-        const id = req.params.id;
-        const events = await Event.findById({ user_id: id });
+        const email = req.params.user_id;
+        const events = await Event.find({ user_id: email });
         return res.status(200).send(events);
     } catch (e) {
         console.log(e);
@@ -13,11 +13,10 @@ router.get('/user/:id/events', async (req, res) => {
     }
 })
 
-router.post('/user/:id/event', async (req, res) => {
+router.post('/event', async (req, res) => {
     try {
-        const id = req.params.id;
-        const { name, desc, time } = req.body;
-        const newEvent = new Event({ user_id: id, name, desc, time });
+        const { name, desc, time, email } = req.body;
+        const newEvent = new Event({ user_id: email, name, desc, time });
         const eventCreated = await newEvent.save();
         if (eventCreated) {
             return res.status(201).send(eventCreated);
@@ -29,18 +28,18 @@ router.post('/user/:id/event', async (req, res) => {
     }
 })
 
-router.get('/user/:id/event/:event_id', async (req, res) => {
+router.get('/event/:event_id', async (req, res) => {
     try {
-        const id = req.params.id;
         const event_id = req.params.event_id;
-        const event = await Event.findById({ event_id });
+        const event = await Event.findById({ _id: event_id });
         return res.status(200).send(event);
     } catch (e) {
+        console.log(e);
         res.status(500).send({ message: "Something went wrong" })
     }
 })
 
-router.patch('/user/:id/event/:event_id', async (req, res) => {
+router.patch('/event/:event_id', async (req, res) => {
     try {
         const event_id = req.params.event_id;
         const { playlist } = req.body;

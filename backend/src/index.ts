@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 require('dotenv').config();
-
+import Event from './routes/event'
 const app = express();
 
 // middlewars
@@ -15,6 +15,7 @@ app.get("/", (req, res) => {
 })
 
 app.set('trust proxy', 1)
+app.use('/', Event);
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {

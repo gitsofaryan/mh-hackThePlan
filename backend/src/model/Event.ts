@@ -21,9 +21,9 @@ const event = new mongoose.Schema({
     invitation: {
         type: String
     },
-    playlist: {
+    playlist: [{
         type: String
-    },
+    }],
     status: {
         default: "Open",
         type: String
