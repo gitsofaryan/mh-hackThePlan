@@ -4,16 +4,18 @@ import Header from '../components/Header'
 import { Link, useNavigate } from 'react-router-dom'
 import { ArrowForward } from '@material-ui/icons'
 import axios from 'axios'
+import { useAuth0 } from '@auth0/auth0-react'
 
 function MyEvents() {
+    const { user, isAuthenticated, isLoading } = useAuth0();
     const [events, setEvents] = useState([]);
     const navigate = useNavigate();
     const handleFetch = async () => {
         try {
-            const res = (await axios.get(`http://localhost:8000/vedantjainben10@gmail.com/events`)).data;
+            const res = (await axios.get(`http://localhost:8000/${user.email}/events`)).data;
             setEvents(res);
-            console.log(res);
         } catch (e) {
+            navigate('/')
             window.alert("Something went wrong!")
         }
     }
@@ -30,7 +32,7 @@ function MyEvents() {
             <div className="hero" style={{ height: '250px' }}>
                 <div className="h-text">
                     <h1>My Events</h1>
-                    <button className='p-btn'><Link to="/event/new" target="_blank">Create event</Link> <ArrowForward /> </button>
+                    <button className='p-btn'><Link to="/event/new">Create event</Link> <ArrowForward /> </button>
                 </div>
             </div>
             <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>

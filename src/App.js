@@ -5,8 +5,12 @@ import './App.css'
 import CreateEvent from './Pages/CreateEvent';
 import Event from './Pages/Event';
 import MyEvents from './Pages/MyEvents';
+import { useAuth0 } from '@auth0/auth0-react';
+
 
 function App() {
+  const { isAuthenticated } = useAuth0();
+
   return (
     <div>
         <Routes>

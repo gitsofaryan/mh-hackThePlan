@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { BackPage } from './Homepage'
 import Header from '../components/Header'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { ArrowForward, Delete } from '@material-ui/icons'
 import SpotifyWebApi from "spotify-web-api-js";
 import axios from 'axios'
+import { useAuth0 } from '@auth0/auth0-react'
 
 const spotifyApi = new SpotifyWebApi();
 
@@ -15,15 +16,16 @@ function Event() {
     const [name, setName] = useState("");
     const [desc, setDesc] = useState("");
     const [timing, setTiming] = useState("");
+    const { user } = useAuth0();
 
+    const navigator = useNavigate();
     const handleInputChange = (event) => {
         setNewTask(event.target.value);
     };
-
     const handleFormSubmit = (event) => {
         event.preventDefault();
         if (!newTask) return;
-        setTasks([...tasks, `newTask | user name`]);
+        setTasks([...tasks, `${newTask}`]);
         setNewTask("");
     };
 
@@ -48,9 +50,10 @@ function Event() {
             const res = await axios.patch(`http://localhost:8000/event/${id}`, {
                 playlist: tasks
             });
-            if(res.status === 201) {
+            if (res.status === 201) {
                 window.alert("Playlist updated successfully!")
             }
+            fetchEvent();
         } catch (e) {
             window.alert("Something went wrong");
         }
@@ -66,8 +69,8 @@ function Event() {
                     <h1>{name}</h1>
                     <h4>{desc}</h4>
                     <h4>Timing: {timing}</h4>
+                    <h6>Link: <a href={window.location.href} target='_blank'>{window.location.href}</a></h6>
                 </div>
-                {/* <button className='p-btn'><Link to="/event/new" target="_blank">Create event</Link> <ArrowForward /> </button> */}
             </div>
             <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 <div className='ev-div' style={{ margin: '30px' }}><hr /></div>

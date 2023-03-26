@@ -27,7 +27,7 @@ function Homepage() {
                     <h1>EventEase</h1>
                     <h4>Go with Flow is a platform that allows users to make Algorithm’s flowchart online using Simulator. The users can create many projects and can download them in form of images.</h4>
                 </div>
-                <button className='p-btn'><Link to="/event/new" target="_blank">Create event</Link> <ArrowForward /> </button>
+                <button className='p-btn'><Link to="/event/new">Create event</Link> <ArrowForward /> </button>
             </div>
             <h1 className='heading'>Features</h1>
             <div className="app_demo">
@@ -78,17 +78,6 @@ function Homepage() {
                     </div>
                 </div>
             </div>
-            <footer className='app_demo'>
-                <div className="f-wrapper">
-                    <h3>GoWithFlow © 2023</h3>
-                    <div className='icon'>
-                        <a href="https://www.linkedin.com/in/vedant-jain-781006145/" target="_blank" rel="noopener noreferrer"><LinkedIn /></a>
-                        <a href="https://twitter.com/vedantj_03" target="_blank" rel="noopener noreferrer"><Twitter /></a>
-                        <a href="https://github.com/vedant-jain03" target="_blank" rel="noopener noreferrer"><GitHub /></a>
-                        <a class="email-link" href="mailto:vedantjainben10@gmail.com" rel="noopener noreferrer" target="_blank"><Email /></a>
-                    </div>
-                </div>
-            </footer>
         </div>
     )
 }

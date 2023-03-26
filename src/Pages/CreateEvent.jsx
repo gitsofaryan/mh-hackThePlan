@@ -4,6 +4,7 @@ import Header from '../components/Header'
 import { Link, useNavigate } from 'react-router-dom'
 import { ArrowBack, ArrowForward } from '@material-ui/icons'
 import axios from 'axios'
+import { useAuth0 } from '@auth0/auth0-react'
 
 function CgItem({ text }) {
     const [select, setSelect] = useState(false);
@@ -14,6 +15,7 @@ function CgItem({ text }) {
 
 function CreateEvent() {
     const navigate = useNavigate();
+    const {user} = useAuth0();
     const [step, setStep] = useState(1);
     const [name, setName] = useState("");
     const [desc, setDesc] = useState("");
@@ -22,7 +24,7 @@ function CreateEvent() {
         console.log(process.env.REACT_APP_BACKEND);
         try {
             const res = (await axios.post(`http://localhost:8000/event`, {
-                email: "vedantjainben10@gmail.com",
+                email: user.email,
                 name: name,
                 desc: desc,
                 time: timing
