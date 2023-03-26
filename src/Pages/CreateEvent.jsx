@@ -23,7 +23,7 @@ function CreateEvent() {
     const handleSubmit = async () => {
         console.log(process.env.REACT_APP_BACKEND);
         try {
-            const res = (await axios.post(`http://localhost:8000/event`, {
+            const res = (await axios.post(`https://mh-hacktheplan.onrender.com/event`, {
                 email: user.email,
                 name: name,
                 desc: desc,

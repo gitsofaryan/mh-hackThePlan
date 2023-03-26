@@ -35,7 +35,7 @@ function Event() {
     const { id } = useParams();
     const fetchEvent = async () => {
         try {
-            const res = (await axios.get(`http://localhost:8000/event/${id}`)).data;
+            const res = (await axios.get(`https://mh-hacktheplan.onrender.com/event/${id}`)).data;
             console.log(res);
             setName(res.name);
             setDesc(res.desc);
@@ -47,7 +47,7 @@ function Event() {
     }
     const handleUpdate = async () => {
         try {
-            const res = await axios.patch(`http://localhost:8000/event/${id}`, {
+            const res = await axios.patch(`https://mh-hacktheplan.onrender.com/event/${id}`, {
                 playlist: tasks
             });
             if (res.status === 201) {

@@ -3,6 +3,8 @@ import container_bg from "../images/container_bg.png"
 import bg_line from "../images/bg_line.png"
 import demo_app_img from '../images/app_demo_img.png'
 import demo_app_im2 from '../images/app_demo_img2.png'
+
+import demo_app_im3 from '../images/app_demo_img3.png'
 import { LinkedIn, Twitter, GitHub, Email, ArrowForward } from '@material-ui/icons'
 import { Link } from 'react-router-dom'
 import Header from '../components/Header'
@@ -25,7 +27,7 @@ function Homepage() {
             <div className="hero">
                 <div className="h-text">
                     <h1>EventEase</h1>
-                    <h4>Go with Flow is a platform that allows users to make Algorithm’s flowchart online using Simulator. The users can create many projects and can download them in form of images.</h4>
+                    <h4>We have made a centeralised system for an event, such that each participant can add their songs. This will release the pressure of organizer for songs.</h4>
                 </div>
                 <button className='p-btn'><Link to="/event/new">Create event</Link> <ArrowForward /> </button>
             </div>
@@ -33,8 +35,19 @@ function Homepage() {
             <div className="app_demo">
                 <div className="ap-wrapper">
                     <div className="aw-header">
-                        <h1>Simulator</h1>
-                        <h4>This is a demo flowchart for checking weather a number is even or odd.</h4>
+                        <h1>Crowed-Sourced Playlist</h1>
+                        <h4>We have made a centeralised system for an event, such that each participant can add their songs.</h4>
+                    </div>
+                    <div>
+                        <img src={demo_app_im3} alt="" className='demo_app_img' />
+                    </div>
+                </div>
+            </div>
+            <div className="app_demo">
+                <div className="ap-wrapper">
+                    <div className="aw-header">
+                        <h1>Create Event</h1>
+                        <h4>Our app is made for easiness, creating event is so simple.</h4>
                     </div>
                     <div>
                         <img src={demo_app_img} alt="" className='demo_app_img' />
@@ -44,8 +57,8 @@ function Homepage() {
             <div className="app_demo">
                 <div className="ap-wrapper">
                     <div className="aw-header">
-                        <h1>Dashboard</h1>
-                        <h4>Create as many project you want to in the dashboard.</h4>
+                        <h1>My events</h1>
+                        <h4>Don't worry all your events are saved!</h4>
                     </div>
                     <div>
                         <img src={demo_app_im2} alt="" className='demo_app_img' />
@@ -64,7 +77,6 @@ function Homepage() {
                         <div className='tech_stack'>Express.js</div>
                         <div className='tech_stack'>MongoDB</div>
                         <div className='tech_stack'>Javascript</div>
-                        <div className='tech_stack'>react-flow-renderer</div>
                     </div>
                 </div>
             </div>

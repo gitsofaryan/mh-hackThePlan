@@ -12,7 +12,7 @@ function MyEvents() {
     const navigate = useNavigate();
     const handleFetch = async () => {
         try {
-            const res = (await axios.get(`http://localhost:8000/${user.email}/events`)).data;
+            const res = (await axios.get(`https://mh-hacktheplan.onrender.com/${user.email}/events`)).data;
             setEvents(res);
         } catch (e) {
             navigate('/')
